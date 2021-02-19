@@ -13,7 +13,7 @@ protocol TopListInteracting: RefreshableListInteractor {
     func loadItems()
 }
 
-protocol TopListInteractorOutput: AnyObject {
+protocol TopListInteractorOutput: RefreshableListInteractorOutput {
 
     func didStartLoadingItems()
     func didLoadItems()
@@ -52,7 +52,30 @@ extension TopList {
 
 extension TopList.Interactor {
     
-    
+    func loadTop(success: @escaping () -> Void, fail: @escaping (Error) -> Void) {
+        
+        let constants = Constants()
+        
+        api.loadTop(limit: constants.limit, after: after) { [weak self] (result) in
+            
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            
+            case .success(let item):
+                
+                self.after = item.after()
+                self.entities.append(contentsOf: self.entities)
+                
+                success()
+                
+            case .failure(let error):
+                fail(error)
+            }
+        }
+    }
 }
 
 // MARK: - Business logic
@@ -86,22 +109,23 @@ extension TopList.Interactor: TopListInteracting {
         
         output?.didStartLoadingItems()
         
-        let constants = Constants()
+        loadTop { [weak self] in
+            self?.output.didLoadItems()
+        } fail: { [weak self] (error) in
+            self?.output.didFailLoadItems(with: error)
+        }
+    }
+    
+    func refreshItems() {
         
-        api.loadTop(limit: constants.limit, after: after) { [weak self] (result) in guard let self = self else { return }
-            
-            switch result {
-            
-            case .success(let item):
-                
-                self.after = item.after()
-                self.entities.append(contentsOf: self.entities)
-                
-                self.output.didLoadItems()
-                
-            case .failure(let error):
-                self.output?.didFailLoadItems(with: error)
-            }
+        output.didStartRefreshingItems()
+        
+        after = nil
+        
+        loadTop { [weak self] in
+            self?.output.didRefreshItems()
+        } fail: { [weak self] (error) in
+            self?.output.didFailToRefreshItems(with: error)
         }
     }
 }
