@@ -29,6 +29,9 @@
 		30BC1E4725DEE87700E578D7 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E4625DEE87700E578D7 /* URLRequest.swift */; };
 		30BC1E4C25DEEAC000E578D7 /* DecodableResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E4B25DEEAC000E578D7 /* DecodableResponseParser.swift */; };
 		30BC1E5125DFE54500E578D7 /* TopList.Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E5025DFE54500E578D7 /* TopList.Top.swift */; };
+		30BC1E6225DFE98A00E578D7 /* RefreshableListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E6125DFE98A00E578D7 /* RefreshableListInteractorOutput.swift */; };
+		30BC1E6A25DFE9AC00E578D7 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E6925DFE9AC00E578D7 /* ListInteractor.swift */; };
+		30BC1E6F25DFE9C600E578D7 /* RefreshableListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E6E25DFE9C600E578D7 /* RefreshableListInteractor.swift */; };
 		30C2BF3025D6DAAB0049060B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2BF2F25D6DAAB0049060B /* AppDelegate.swift */; };
 		30C2BF3225D6DAAB0049060B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2BF3125D6DAAB0049060B /* SceneDelegate.swift */; };
 		30C2BF3425D6DAAB0049060B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2BF3325D6DAAB0049060B /* ViewController.swift */; };
@@ -79,6 +82,9 @@
 		30BC1E4625DEE87700E578D7 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		30BC1E4B25DEEAC000E578D7 /* DecodableResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableResponseParser.swift; sourceTree = "<group>"; };
 		30BC1E5025DFE54500E578D7 /* TopList.Top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopList.Top.swift; sourceTree = "<group>"; };
+		30BC1E6125DFE98A00E578D7 /* RefreshableListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableListInteractorOutput.swift; sourceTree = "<group>"; };
+		30BC1E6925DFE9AC00E578D7 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
+		30BC1E6E25DFE9C600E578D7 /* RefreshableListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableListInteractor.swift; sourceTree = "<group>"; };
 		30C2BF2C25D6DAAB0049060B /* RaketaSampleCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaketaSampleCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C2BF2F25D6DAAB0049060B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30C2BF3125D6DAAB0049060B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 		3013662225DBEDA500E8C0B4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				30BC1E5E25DFE96900E578D7 /* Interactors */,
 				3013662325DBEDB400E8C0B4 /* API.swift */,
 				3013662825DBEF3000E8C0B4 /* API.Parameter.swift */,
 				30BC1E4125DEE24200E578D7 /* HTTP.swift */,
@@ -233,6 +240,32 @@
 				301365D425DBD5F000E8C0B4 /* TopList */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		30BC1E5E25DFE96900E578D7 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				30BC1E6025DFE97700E578D7 /* Output */,
+				30BC1E5F25DFE97400E578D7 /* List */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		30BC1E5F25DFE97400E578D7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				30BC1E6925DFE9AC00E578D7 /* ListInteractor.swift */,
+				30BC1E6E25DFE9C600E578D7 /* RefreshableListInteractor.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		30BC1E6025DFE97700E578D7 /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				30BC1E6125DFE98A00E578D7 /* RefreshableListInteractorOutput.swift */,
+			);
+			path = Output;
 			sourceTree = "<group>";
 		};
 		30C2BF2325D6DAAB0049060B = {
@@ -427,6 +460,7 @@
 				301365FC25DBD60C00E8C0B4 /* TopList.Interactor.swift in Sources */,
 				3013661425DBE17E00E8C0B4 /* ImageViewWithDownloader.swift in Sources */,
 				3013660A25DBD94D00E8C0B4 /* TopListCell.swift in Sources */,
+				30BC1E6F25DFE9C600E578D7 /* RefreshableListInteractor.swift in Sources */,
 				30C2BF3425D6DAAB0049060B /* ViewController.swift in Sources */,
 				30BC1E4725DEE87700E578D7 /* URLRequest.swift in Sources */,
 				301365FA25DBD60C00E8C0B4 /* TopList.Router.swift in Sources */,
@@ -437,7 +471,9 @@
 				3013660F25DBD99500E8C0B4 /* DataView.swift in Sources */,
 				30BC1E3225DED84B00E578D7 /* URLComponents.swift in Sources */,
 				30C2BF3025D6DAAB0049060B /* AppDelegate.swift in Sources */,
+				30BC1E6225DFE98A00E578D7 /* RefreshableListInteractorOutput.swift in Sources */,
 				301365FE25DBD60C00E8C0B4 /* TopListView.swift in Sources */,
+				30BC1E6A25DFE9AC00E578D7 /* ListInteractor.swift in Sources */,
 				30BC1E4C25DEEAC000E578D7 /* DecodableResponseParser.swift in Sources */,
 				30C2BF3225D6DAAB0049060B /* SceneDelegate.swift in Sources */,
 				3013661925DBE41700E8C0B4 /* HTTPURLResponseWithMimeType.swift in Sources */,
@@ -621,6 +657,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T94FAS7PUN;
 				INFOPLIST_FILE = RaketaSampleCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,6 +676,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T94FAS7PUN;
 				INFOPLIST_FILE = RaketaSampleCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
