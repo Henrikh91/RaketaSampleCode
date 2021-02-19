@@ -19,6 +19,10 @@ extension TopList {
         func entities() -> [Entity] {
             data.children.map { $0.data }
         }
+        
+        func after() -> String? {
+            return data.after
+        }
     }
     
     // MARK: - TopListData

@@ -10,7 +10,7 @@ import Foundation
 
 protocol TopListAPI {
     
-    
+    func loadTop(limit: String, after: String?, completion: @escaping (Result<TopList.Top, Error>) -> Void)
 }
 
 extension TopList {
@@ -58,15 +58,11 @@ extension TopList {
 
 extension TopList.APIClient: TopListAPI {
 
-    func loadTop(limit: String, after: String? = nil, completion: @escaping ([URLSessionDataTask], [URLSessionUploadTask], [URLSessionDownloadTask]) -> Void) {
-        
+    func loadTop(limit: String, after: String?, completion: @escaping (Result<TopList.Top, Error>) -> Void) {
+       
         let request = Route.loadTop(limit: limit, after: after)
-//        API.shared.responseDecodable(request, completion: <#T##(Result<Decodable, Error>) -> Void#>)
         
-//
-//
-//        urlSession.dataTask(with: <#T##URLRequest#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
-        
+        API.shared.responseDecodable(request, completion: completion)
     }
 }
 
