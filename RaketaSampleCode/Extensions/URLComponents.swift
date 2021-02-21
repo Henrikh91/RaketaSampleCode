@@ -9,6 +9,16 @@ import Foundation
 
 extension URLComponents {
 
+    static var reddit: URLComponents = {
+        
+        var urlcomponents = URLComponents()
+        
+        urlcomponents.scheme = "https"
+        urlcomponents.host = "reddit.com"
+        
+        return urlcomponents
+    }()
+    
     func request(by method: HTTP.Method, parameters: Parameters?) -> URLRequest? {
         
         var urlComponents = self

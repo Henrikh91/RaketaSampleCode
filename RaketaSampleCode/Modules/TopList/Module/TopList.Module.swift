@@ -19,7 +19,7 @@ extension TopList {
             let router = Router()
             router.viewController = viewController
 
-            let presenter = Presenter()
+            let presenter = Presenter<Interactor>()
             presenter.view = viewController
             presenter.router = router
 

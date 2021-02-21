@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TopListView: AnyObject {
+protocol TopListView: ViewWithReloadTable, ViewWithRefreshLoader, ViewWithErrorAlert {
 
     
 }

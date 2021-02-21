@@ -23,6 +23,8 @@
 		3013661E25DBE43500E8C0B4 /* StringWithMimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013661D25DBE43500E8C0B4 /* StringWithMimeType.swift */; };
 		3013662425DBEDB400E8C0B4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013662325DBEDB400E8C0B4 /* API.swift */; };
 		3013662925DBEF3000E8C0B4 /* API.Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013662825DBEF3000E8C0B4 /* API.Parameter.swift */; };
+		302908C425E2B6C600CCA456 /* ViewWithReloadTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302908C325E2B6C600CCA456 /* ViewWithReloadTable.swift */; };
+		302908CC25E2BABD00CCA456 /* ViewWithRefreshLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302908CB25E2BABD00CCA456 /* ViewWithRefreshLoader.swift */; };
 		30BC1E3225DED84B00E578D7 /* URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E3125DED84B00E578D7 /* URLComponents.swift */; };
 		30BC1E3D25DEE1F300E578D7 /* RequestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E3C25DEE1F300E578D7 /* RequestDataProvider.swift */; };
 		30BC1E4225DEE24200E578D7 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E4125DEE24200E578D7 /* HTTP.swift */; };
@@ -32,6 +34,9 @@
 		30BC1E6225DFE98A00E578D7 /* RefreshableListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E6125DFE98A00E578D7 /* RefreshableListInteractorOutput.swift */; };
 		30BC1E6A25DFE9AC00E578D7 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E6925DFE9AC00E578D7 /* ListInteractor.swift */; };
 		30BC1E6F25DFE9C600E578D7 /* RefreshableListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E6E25DFE9C600E578D7 /* RefreshableListInteractor.swift */; };
+		30BC1E8425E02EC400E578D7 /* ViewWithErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E8325E02EC400E578D7 /* ViewWithErrorAlert.swift */; };
+		30BC1E8C25E02F1900E578D7 /* AlertControllerWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E8B25E02F1900E578D7 /* AlertControllerWithError.swift */; };
+		30BC1E9425E02F8800E578D7 /* ApplicationWithTopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC1E9325E02F8800E578D7 /* ApplicationWithTopController.swift */; };
 		30C2BF3025D6DAAB0049060B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2BF2F25D6DAAB0049060B /* AppDelegate.swift */; };
 		30C2BF3225D6DAAB0049060B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2BF3125D6DAAB0049060B /* SceneDelegate.swift */; };
 		30C2BF3425D6DAAB0049060B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2BF3325D6DAAB0049060B /* ViewController.swift */; };
@@ -76,6 +81,8 @@
 		3013661D25DBE43500E8C0B4 /* StringWithMimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWithMimeType.swift; sourceTree = "<group>"; };
 		3013662325DBEDB400E8C0B4 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3013662825DBEF3000E8C0B4 /* API.Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.Parameter.swift; sourceTree = "<group>"; };
+		302908C325E2B6C600CCA456 /* ViewWithReloadTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithReloadTable.swift; sourceTree = "<group>"; };
+		302908CB25E2BABD00CCA456 /* ViewWithRefreshLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithRefreshLoader.swift; sourceTree = "<group>"; };
 		30BC1E3125DED84B00E578D7 /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
 		30BC1E3C25DEE1F300E578D7 /* RequestDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDataProvider.swift; sourceTree = "<group>"; };
 		30BC1E4125DEE24200E578D7 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
@@ -85,6 +92,9 @@
 		30BC1E6125DFE98A00E578D7 /* RefreshableListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableListInteractorOutput.swift; sourceTree = "<group>"; };
 		30BC1E6925DFE9AC00E578D7 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		30BC1E6E25DFE9C600E578D7 /* RefreshableListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableListInteractor.swift; sourceTree = "<group>"; };
+		30BC1E8325E02EC400E578D7 /* ViewWithErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithErrorAlert.swift; sourceTree = "<group>"; };
+		30BC1E8B25E02F1900E578D7 /* AlertControllerWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerWithError.swift; sourceTree = "<group>"; };
+		30BC1E9325E02F8800E578D7 /* ApplicationWithTopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationWithTopController.swift; sourceTree = "<group>"; };
 		30C2BF2C25D6DAAB0049060B /* RaketaSampleCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaketaSampleCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C2BF2F25D6DAAB0049060B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30C2BF3125D6DAAB0049060B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +226,9 @@
 				3013662825DBEF3000E8C0B4 /* API.Parameter.swift */,
 				30BC1E4125DEE24200E578D7 /* HTTP.swift */,
 				30BC1E4B25DEEAC000E578D7 /* DecodableResponseParser.swift */,
+				3013660E25DBD99500E8C0B4 /* DataView.swift */,
+				30BC1E3C25DEE1F300E578D7 /* RequestDataProvider.swift */,
+				30BC1E8325E02EC400E578D7 /* ViewWithErrorAlert.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -223,13 +236,15 @@
 		308E741525DBCE1300FD67D2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3013660E25DBD99500E8C0B4 /* DataView.swift */,
 				3013661825DBE41700E8C0B4 /* HTTPURLResponseWithMimeType.swift */,
 				3013661D25DBE43500E8C0B4 /* StringWithMimeType.swift */,
 				3013661325DBE17E00E8C0B4 /* ImageViewWithDownloader.swift */,
 				30BC1E3125DED84B00E578D7 /* URLComponents.swift */,
-				30BC1E3C25DEE1F300E578D7 /* RequestDataProvider.swift */,
 				30BC1E4625DEE87700E578D7 /* URLRequest.swift */,
+				30BC1E8B25E02F1900E578D7 /* AlertControllerWithError.swift */,
+				30BC1E9325E02F8800E578D7 /* ApplicationWithTopController.swift */,
+				302908C325E2B6C600CCA456 /* ViewWithReloadTable.swift */,
+				302908CB25E2BABD00CCA456 /* ViewWithRefreshLoader.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -456,10 +471,12 @@
 			files = (
 				3013661E25DBE43500E8C0B4 /* StringWithMimeType.swift in Sources */,
 				301365FF25DBD60C00E8C0B4 /* TopListViewController.swift in Sources */,
+				30BC1E9425E02F8800E578D7 /* ApplicationWithTopController.swift in Sources */,
 				301365FB25DBD60C00E8C0B4 /* TopList.Presenter.swift in Sources */,
 				301365FC25DBD60C00E8C0B4 /* TopList.Interactor.swift in Sources */,
 				3013661425DBE17E00E8C0B4 /* ImageViewWithDownloader.swift in Sources */,
 				3013660A25DBD94D00E8C0B4 /* TopListCell.swift in Sources */,
+				302908C425E2B6C600CCA456 /* ViewWithReloadTable.swift in Sources */,
 				30BC1E6F25DFE9C600E578D7 /* RefreshableListInteractor.swift in Sources */,
 				30C2BF3425D6DAAB0049060B /* ViewController.swift in Sources */,
 				30BC1E4725DEE87700E578D7 /* URLRequest.swift in Sources */,
@@ -467,8 +484,11 @@
 				3013660125DBD60C00E8C0B4 /* TopList.API.swift in Sources */,
 				30BC1E4225DEE24200E578D7 /* HTTP.swift in Sources */,
 				301365FD25DBD60C00E8C0B4 /* TopList.Module.swift in Sources */,
+				30BC1E8425E02EC400E578D7 /* ViewWithErrorAlert.swift in Sources */,
 				30BC1E3D25DEE1F300E578D7 /* RequestDataProvider.swift in Sources */,
 				3013660F25DBD99500E8C0B4 /* DataView.swift in Sources */,
+				30BC1E8C25E02F1900E578D7 /* AlertControllerWithError.swift in Sources */,
+				302908CC25E2BABD00CCA456 /* ViewWithRefreshLoader.swift in Sources */,
 				30BC1E3225DED84B00E578D7 /* URLComponents.swift in Sources */,
 				30C2BF3025D6DAAB0049060B /* AppDelegate.swift in Sources */,
 				30BC1E6225DFE98A00E578D7 /* RefreshableListInteractorOutput.swift in Sources */,
@@ -657,7 +677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T94FAS7PUN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RaketaSampleCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,7 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T94FAS7PUN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RaketaSampleCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

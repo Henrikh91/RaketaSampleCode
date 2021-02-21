@@ -16,7 +16,7 @@ protocol TopListInteracting: RefreshableListInteractor {
 protocol TopListInteractorOutput: RefreshableListInteractorOutput {
 
     func didStartLoadingItems()
-    func didLoadItems()
+    func didLoadItems(at indexPaths: [IndexPath])
     func didFailLoadItems(with error: Error)
 }
 
@@ -39,11 +39,17 @@ extension TopList {
         private let api: TopListAPI
         private var entities: [Entity] = []
         private var after: String?
+        private let dateComponentsFormatter: DateComponentsFormatter
 
         // MARK: - Init
 
         init(api: TopListAPI = APIClient()) {
             self.api = api
+            
+            self.dateComponentsFormatter = DateComponentsFormatter()
+            self.dateComponentsFormatter.allowedUnits = [.day, .hour, .minute, .second ]
+            self.dateComponentsFormatter.maximumUnitCount = 1
+            self.dateComponentsFormatter.unitsStyle = .full
         }
     }
 }
@@ -67,7 +73,14 @@ extension TopList.Interactor {
             case .success(let item):
                 
                 self.after = item.after()
-                self.entities.append(contentsOf: self.entities)
+                
+                var itemEntities = item.entities()
+                
+                for index in 0..<itemEntities.count {
+                    itemEntities[index].updateViewModel(with: self.dateComponentsFormatter)
+                }
+                                
+                self.entities.append(contentsOf: itemEntities)
                 
                 success()
                 
@@ -109,8 +122,28 @@ extension TopList.Interactor: TopListInteracting {
         
         output?.didStartLoadingItems()
         
+        let endIndex: Int? = entities.isEmpty ? nil : entities.endIndex
+        
         loadTop { [weak self] in
-            self?.output.didLoadItems()
+            
+            guard let self = self else {
+                return
+            }
+            
+            var indexPaths: [IndexPath] = []
+            
+            if let oldEndIndex = endIndex {
+                
+                for index in oldEndIndex..<self.entities.endIndex {
+                    
+                    let indexPath = IndexPath(row: index, section: 0)
+                    
+                    indexPaths.append(indexPath)
+                }
+            }
+            
+            self.output.didLoadItems(at: indexPaths)
+            
         } fail: { [weak self] (error) in
             self?.output.didFailLoadItems(with: error)
         }

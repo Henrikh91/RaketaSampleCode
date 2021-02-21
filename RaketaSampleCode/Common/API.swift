@@ -26,22 +26,6 @@ struct API {
     }
 }
 
-// MARK: - Reddit URLComponents
-
-fileprivate extension URLComponents {
-    
-    static var reddit: URLComponents = {
-        
-        var urlcomponents = URLComponents()
-        
-        urlcomponents.scheme = "https"
-        urlcomponents.host = "reddit.com"
-//        urlcomponents.path = "top.json"
-        
-        return urlcomponents
-    }()
-}
-
 // MARK: - URLSessionConfiguration
 
 extension URLSessionConfiguration {
