@@ -17,7 +17,7 @@ extension TopList {
         let thumbnail: String? // A thumbnail for those who have a picture
         let numberOfComments: Int // Number of comments
         
-        private(set) var viewModel: ViewModel = .initial
+        private(set) var viewModel: TopListCell.ViewModel = .initial
 
         // MARK: - Codable
         
@@ -112,7 +112,7 @@ extension TopList {
                 thumbnailURL = URL(string: thumbnail)
             }
             
-            self.viewModel =  ViewModel(title: "Title: \(title)",
+            self.viewModel =  TopListCell.ViewModel(title: "Title: \(title)",
                                    author: "Author: \(author)",
                                    timeAgo: "Entry date \(timeAgo)",
                                    imageURL: thumbnailURL,
@@ -121,17 +121,17 @@ extension TopList {
     }
 }
 
-// MARK: - ViewModel
-
-extension TopList.Entity {
-
-    struct ViewModel {
-        let title: String
-        let author: String
-        let timeAgo: String
-        let imageURL: URL?
-        let comments: String
-        
-        static var initial = ViewModel(title: "", author: "", timeAgo: "", imageURL: nil, comments: "")
-    }
-}
+//// MARK: - ViewModel
+//
+//extension TopList.Entity {
+//
+//    struct ViewModel {
+//        let title: String
+//        let author: String
+//        let timeAgo: String
+//        let imageURL: URL?
+//        let comments: String
+//
+//        static var initial = ViewModel(title: "", author: "", timeAgo: "", imageURL: nil, comments: "")
+//    }
+//}

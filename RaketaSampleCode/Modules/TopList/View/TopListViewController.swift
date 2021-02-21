@@ -10,10 +10,28 @@ import UIKit
 
 final class TopListViewController: UIViewController {
 
+//    private struct ListOfContactsConstants {
+//        let contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 8, right: 0)
+//    }
+
+    // MARK: - IBOutlets
+    
+    @IBOutlet private(set) var tableView: UITableView!
+
     // MARK: - Public properties
 
     var presenter: TopListPresenting!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(didSwipeRefreshContacts), for: .valueChanged)
 
+        tableView.refreshControl = refreshControl
+
+        return refreshControl
+    }()
+    
     // MARK: - Object lifecycle
 
     override func awakeFromNib() {
@@ -26,13 +44,58 @@ final class TopListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: Ask the Presenter to do some work
         presenter.viewDidLoad()
+    }
+}
+
+// MARK: - IBActions
+
+extension TopListViewController {
+    
+    @IBAction func didSwipeRefreshContacts() {
+        presenter.didSwipeRefresh()
     }
 }
 
 // MARK: - View logic
 
-extension TopListViewController: TopListView {
+extension TopListViewController: TopListView { }
 
+// MARK: - UITableViewDataSource
+
+extension TopListViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return presenter.numberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfItems(in: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let viewModel = presenter.item(at: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TopListCell.identifier, for: indexPath) as! TopListCell
+        
+        cell.fill(with: viewModel)
+        
+        return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height {
+            presenter.loadNextPage()
+        }
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension TopListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectItem(at: indexPath)
+    }
 }
