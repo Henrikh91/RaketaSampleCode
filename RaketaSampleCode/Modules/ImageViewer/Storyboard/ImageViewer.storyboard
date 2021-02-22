@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="ptC-cj-7iH">
-                                <rect key="frame" x="0.0" y="88" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="806"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r5s-CB-cjK">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="806"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                     </imageView>
@@ -51,13 +51,14 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XSn-ck-TvG"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XSn-ck-TvG" firstAttribute="trailing" secondItem="MW5-9d-P03" secondAttribute="trailing" constant="8" id="5yG-DY-aY0"/>
                             <constraint firstItem="XSn-ck-TvG" firstAttribute="trailing" secondItem="ptC-cj-7iH" secondAttribute="trailing" id="6Av-fH-wPc"/>
                             <constraint firstItem="XSn-ck-TvG" firstAttribute="bottom" secondItem="MW5-9d-P03" secondAttribute="bottom" constant="8" id="I8n-rY-MHp"/>
                             <constraint firstItem="MW5-9d-P03" firstAttribute="top" secondItem="ptC-cj-7iH" secondAttribute="bottom" constant="8" id="KRM-4D-j7i"/>
                             <constraint firstItem="MW5-9d-P03" firstAttribute="leading" secondItem="XSn-ck-TvG" secondAttribute="leading" constant="8" id="qjP-ZA-jje"/>
-                            <constraint firstItem="ptC-cj-7iH" firstAttribute="top" secondItem="XSn-ck-TvG" secondAttribute="top" id="vlt-ZS-s3i"/>
+                            <constraint firstItem="ptC-cj-7iH" firstAttribute="top" secondItem="JpY-z6-Ho7" secondAttribute="top" id="vlt-ZS-s3i"/>
                             <constraint firstItem="ptC-cj-7iH" firstAttribute="leading" secondItem="JpY-z6-Ho7" secondAttribute="leading" id="wi9-fa-LTL"/>
                         </constraints>
                     </view>
