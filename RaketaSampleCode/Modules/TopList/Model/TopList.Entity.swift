@@ -16,6 +16,7 @@ extension TopList {
         let created: Int // Entry date, following a format like "X hours ago"
         let thumbnail: String? // A thumbnail for those who have a picture
         let numberOfComments: Int // Number of comments
+        private(set) var isValidThumbnail: Bool = false
         
         private(set) var viewModel: TopListCell.ViewModel = .initial
 
@@ -32,6 +33,8 @@ extension TopList {
         // MARK: Public Methods
 
         mutating func updateViewModel(with dateComponentsFormatter: DateComponentsFormatter) {
+            
+            self.isValidThumbnail = isValid(urlString: thumbnail)
             
             let timeAgo: String
             
@@ -53,5 +56,23 @@ extension TopList {
         mutating func updateViewModel(with image: UIImage?) {
             self.viewModel.image = image
         }
+    }
+}
+
+// MARK: - Private Methods
+
+private extension TopList.Entity {
+    
+    func isValid(urlString: String?) -> Bool {
+        
+        guard
+            let string = urlString,
+            let url = URL(string: string),
+            UIApplication.shared.canOpenURL(url)
+        else {
+            return false
+        }
+        
+        return true
     }
 }

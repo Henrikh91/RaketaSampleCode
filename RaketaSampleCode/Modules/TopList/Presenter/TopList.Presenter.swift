@@ -92,11 +92,11 @@ extension TopList.Presenter: TopListPresenting {
         
         let item = interactor.item(at: indexPath)
         
-        guard let thumbnail = item.thumbnail, URL(string: thumbnail) != nil else {
+        guard item.isValidThumbnail else {
             return
         }
         
-        router.showImageViewer(with: thumbnail)
+        router.showImageViewer(with: item.thumbnail!)
     }
     
     func didSwipeRefresh() {
@@ -107,8 +107,8 @@ extension TopList.Presenter: TopListPresenting {
         
         let item = interactor.item(at: indexPath)
         
-        if let thumbnail = item.thumbnail, item.viewModel.image == nil, URL(string: thumbnail) != nil {
-            download(thumbnail: thumbnail, at: indexPath)
+        if item.isValidThumbnail, item.viewModel.image == nil {
+            download(thumbnail: item.thumbnail!, at: indexPath)
         }
         
         guard
@@ -159,9 +159,7 @@ extension TopList.Presenter: TopListInteractorOutput {
                 return
             }
             
-            self.view?.performBatchUpdates({
-                self.view?.reloadCell(at: [indexPath], with: UITableView.RowAnimation.none)
-            })
+            self.view?.reloadCell(at: [indexPath], with: .fade)
         }
     }
     

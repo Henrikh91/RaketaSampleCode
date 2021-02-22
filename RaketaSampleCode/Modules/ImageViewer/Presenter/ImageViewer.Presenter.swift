@@ -47,8 +47,9 @@ extension ImageViewer.Presenter: ImageViewerPresenting {
                 
                 self.image = UIImage(data: data)
                 
-                self.view?.update(thumbnailImage: self.image)
-                
+                DispatchQueue.main.async {
+                    self.view?.update(thumbnailImage: self.image)
+                }
             case .failure:
                 break
             }
