@@ -10,10 +10,6 @@ import UIKit
 
 final class TopListViewController: UIViewController {
 
-//    private struct ListOfContactsConstants {
-//        let contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 8, right: 0)
-//    }
-
     // MARK: - IBOutlets
     
     @IBOutlet private(set) var tableView: UITableView!

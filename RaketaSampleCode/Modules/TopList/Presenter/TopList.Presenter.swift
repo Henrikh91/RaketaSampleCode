@@ -88,9 +88,15 @@ extension TopList.Presenter: TopListPresenting {
     
     func didSelectItem(at indexPath: IndexPath) {
         
-//        let item = interactor.item(at: indexPath)
-//        
-//        view?.deselectCell(at: indexPath, withAnimation: true)
+        view?.deselectCell(at: indexPath, withAnimation: true)
+        
+        let item = interactor.item(at: indexPath)
+        
+        guard let thumbnail = item.thumbnail, URL(string: thumbnail) != nil else {
+            return
+        }
+        
+        router.showImageViewer(with: thumbnail)
     }
     
     func didSwipeRefresh() {
@@ -101,7 +107,7 @@ extension TopList.Presenter: TopListPresenting {
         
         let item = interactor.item(at: indexPath)
         
-        if let thumbnail = item.thumbnail, item.viewModel.image == nil {
+        if let thumbnail = item.thumbnail, item.viewModel.image == nil, URL(string: thumbnail) != nil {
             download(thumbnail: thumbnail, at: indexPath)
         }
         
@@ -153,12 +159,15 @@ extension TopList.Presenter: TopListInteractorOutput {
                 return
             }
             
-            self.view?.reloadCell(at: [indexPath], with: .fade)
+            self.view?.performBatchUpdates({
+                self.view?.reloadCell(at: [indexPath], with: UITableView.RowAnimation.none)
+            })
         }
     }
     
     func didStartRefreshingItems() {
         isLoadingItems = true
+        view?.reloadData()
     }
     
     func didRefreshItems() {

@@ -31,7 +31,7 @@ extension TopList {
         // MARK: - Constants
         
         private struct Constants {
-            let limit: String = "20"
+            let limit: String = "10"
         }
 
         // MARK: - Public properties
@@ -161,10 +161,10 @@ extension TopList.Interactor: TopListInteracting {
     
     func refreshItems() {
         
-        output.didStartRefreshingItems()
-        
         after = nil
         entities.removeAll()
+        
+        output.didStartRefreshingItems()
         
         loadTop { [weak self] in
             self?.output.didRefreshItems()

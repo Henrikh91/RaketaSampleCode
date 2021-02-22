@@ -10,7 +10,7 @@ import UIKit
 
 protocol TopListRouting {
 
-    
+    func showImageViewer(with thumbnail: String)
 }
 
 extension TopList {
@@ -26,5 +26,17 @@ extension TopList {
 // MARK: - Navigation
 
 extension TopList.Router: TopListRouting {    
-
+    
+    func showImageViewer(with thumbnail: String) {
+        
+        let storyboard = UIStoryboard.init(name: String(describing: ImageViewer.self), bundle: .main)
+        
+        guard let viewController = storyboard.instantiateInitialViewController() as? ImageViewerViewController else {
+            return
+        }
+        
+        ImageViewer.Module().configure(viewController: viewController, thumbnail: thumbnail)
+        
+        self.viewController.present(viewController, animated: true)
+    }
 }

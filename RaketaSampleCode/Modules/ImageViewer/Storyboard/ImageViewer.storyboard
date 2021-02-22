@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KcQ-he-8SH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Viewer View Controller-->
+        <scene sceneID="Bzw-e9-JDp">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KcQ-he-8SH" customClass="ImageViewerViewController" customModule="RaketaSampleCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JpY-z6-Ho7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="ptC-cj-7iH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="718"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r5s-CB-cjK">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="r5s-CB-cjK" firstAttribute="width" secondItem="ptC-cj-7iH" secondAttribute="width" id="Bhm-Qp-yff"/>
+                                    <constraint firstItem="r5s-CB-cjK" firstAttribute="top" secondItem="ptC-cj-7iH" secondAttribute="top" id="EYK-Uu-5s9"/>
+                                    <constraint firstItem="r5s-CB-cjK" firstAttribute="height" secondItem="ptC-cj-7iH" secondAttribute="height" id="fa3-q7-VyH"/>
+                                    <constraint firstAttribute="bottom" secondItem="r5s-CB-cjK" secondAttribute="bottom" id="h8T-PR-6Pt"/>
+                                    <constraint firstItem="r5s-CB-cjK" firstAttribute="leading" secondItem="ptC-cj-7iH" secondAttribute="leading" id="uGZ-DT-yjI"/>
+                                    <constraint firstAttribute="trailing" secondItem="r5s-CB-cjK" secondAttribute="trailing" id="z7r-j9-K0v"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="yvM-2a-Pgf"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="OvM-1N-8eN"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KcQ-he-8SH" id="CNt-0O-wjl"/>
+                                </connections>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW5-9d-P03">
+                                <rect key="frame" x="8" y="814" width="398" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Id7-Z0-Xyh"/>
+                                </constraints>
+                                <state key="normal" title="Save to gallery"/>
+                                <connections>
+                                    <action selector="didTouchSave" destination="KcQ-he-8SH" eventType="touchUpInside" id="WfI-tC-0BW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XSn-ck-TvG"/>
+                        <constraints>
+                            <constraint firstItem="XSn-ck-TvG" firstAttribute="trailing" secondItem="MW5-9d-P03" secondAttribute="trailing" constant="8" id="5yG-DY-aY0"/>
+                            <constraint firstItem="XSn-ck-TvG" firstAttribute="trailing" secondItem="ptC-cj-7iH" secondAttribute="trailing" id="6Av-fH-wPc"/>
+                            <constraint firstItem="XSn-ck-TvG" firstAttribute="bottom" secondItem="MW5-9d-P03" secondAttribute="bottom" constant="8" id="I8n-rY-MHp"/>
+                            <constraint firstItem="MW5-9d-P03" firstAttribute="top" secondItem="ptC-cj-7iH" secondAttribute="bottom" constant="8" id="KRM-4D-j7i"/>
+                            <constraint firstItem="MW5-9d-P03" firstAttribute="leading" secondItem="XSn-ck-TvG" secondAttribute="leading" constant="8" id="qjP-ZA-jje"/>
+                            <constraint firstItem="ptC-cj-7iH" firstAttribute="top" secondItem="XSn-ck-TvG" secondAttribute="top" id="vlt-ZS-s3i"/>
+                            <constraint firstItem="ptC-cj-7iH" firstAttribute="leading" secondItem="JpY-z6-Ho7" secondAttribute="leading" id="wi9-fa-LTL"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="r5s-CB-cjK" id="Icx-Lz-Bf9"/>
+                        <outlet property="saveButton" destination="MW5-9d-P03" id="a6D-nk-aqY"/>
+                        <outlet property="scrollView" destination="ptC-cj-7iH" id="d0T-wA-rFo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2r-wr-ibW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278.26086956521743" y="-43.526785714285715"/>
+        </scene>
+    </scenes>
+</document>

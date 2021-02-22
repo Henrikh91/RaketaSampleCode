@@ -8,7 +8,4 @@
 
 import UIKit
 
-protocol TopListView: ViewWithReloadTable, ViewWithRefreshLoader, ViewWithErrorAlert {
-
-    
-}
+protocol TopListView: ViewWithReloadTable, ViewWithRefreshLoader, ViewWithErrorAlert { }
