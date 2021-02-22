@@ -6,7 +6,7 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension TopList {
     
@@ -106,17 +106,15 @@ extension TopList {
                 timeAgo = "Now"
             }
             
-            var thumbnailURL: URL? = nil
-            
-            if let thumbnail = thumbnail {
-                thumbnailURL = URL(string: thumbnail)
-            }
-            
             self.viewModel =  TopListCell.ViewModel(title: "Title: \(title)",
                                    author: "Author: \(author)",
-                                   timeAgo: "Entry date \(timeAgo)",
-                                   imageURL: thumbnailURL,
+                                   timeAgo: "Entry date: \(timeAgo)",
+                                   image: nil,
                                    comments: "Number of comments: \(numberOfComments)")
+        }
+        
+        mutating func updateViewModel(with image: UIImage?) {
+            self.viewModel.image = image
         }
     }
 }

@@ -6,11 +6,13 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TopListInteracting: RefreshableListInteractor {
 
     func loadItems()
+    
+    func update(thumbnailImage: UIImage?, atIndexPath: IndexPath)
 }
 
 protocol TopListInteractorOutput: RefreshableListInteractorOutput {
@@ -18,6 +20,8 @@ protocol TopListInteractorOutput: RefreshableListInteractorOutput {
     func didStartLoadingItems()
     func didLoadItems(at indexPaths: [IndexPath])
     func didFailLoadItems(with error: Error)
+    
+    func didUpdate(at indexPath: IndexPath)
 }
 
 extension TopList {
@@ -149,11 +153,18 @@ extension TopList.Interactor: TopListInteracting {
         }
     }
     
+    func update(thumbnailImage: UIImage?, atIndexPath: IndexPath) {
+        entities[atIndexPath.row].updateViewModel(with: thumbnailImage)
+        
+        output?.didUpdate(at: atIndexPath)
+    }
+    
     func refreshItems() {
         
         output.didStartRefreshingItems()
         
         after = nil
+        entities.removeAll()
         
         loadTop { [weak self] in
             self?.output.didRefreshItems()

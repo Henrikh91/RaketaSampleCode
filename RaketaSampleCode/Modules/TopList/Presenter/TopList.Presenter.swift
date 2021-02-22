@@ -20,7 +20,7 @@ protocol TopListPresenting: AnyObject {
     
     func didSwipeRefresh()
     
-    func loadNextPage()
+    func viewDidLoadCell(at indexPath: IndexPath)
 }
 
 extension TopList {
@@ -36,6 +36,33 @@ extension TopList {
         // MARK: - Private Properties
         
         private var isLoadingItems: Bool = false
+    }
+}
+
+// MRAK: - Private Methods
+
+private extension TopList.Presenter {
+    
+    func download(thumbnail: String, at indexPath: IndexPath) {
+       
+        API.shared.downloaded(from: thumbnail) { [weak self] (result) in
+                
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            
+            case .success(let data):
+                
+                let image = UIImage(data: data)
+                
+                self.interactor.update(thumbnailImage: image, atIndexPath: indexPath)
+
+            case .failure:
+                break
+            }
+        }
     }
 }
 
@@ -70,9 +97,19 @@ extension TopList.Presenter: TopListPresenting {
         interactor.refreshItems()
     }
 
-    func loadNextPage() {
+    func viewDidLoadCell(at indexPath: IndexPath) {
         
-        guard isLoadingItems == false else {
+        let item = interactor.item(at: indexPath)
+        
+        if let thumbnail = item.thumbnail, item.viewModel.image == nil {
+            download(thumbnail: thumbnail, at: indexPath)
+        }
+        
+        guard
+            isLoadingItems == false,
+            interactor.numberOfSections() - 1 == indexPath.section,
+            interactor.numberOfItems(in: indexPath.section) - 1 == indexPath.row
+        else {
             return
         }
         
@@ -103,6 +140,21 @@ extension TopList.Presenter: TopListInteractorOutput {
     func didFailLoadItems(with error: Error) {
         isLoadingItems = false
         view?.showErrorAlert(with: error.localizedDescription)
+    }
+    
+    func didUpdate(at indexPath: IndexPath) {
+        
+        DispatchQueue.main.async {
+            
+            guard
+                let contains = self.view?.tableView.indexPathsForVisibleRows?.contains(indexPath),
+                contains == true
+            else {
+                return
+            }
+            
+            self.view?.reloadCell(at: [indexPath], with: .fade)
+        }
     }
     
     func didStartRefreshingItems() {

@@ -36,6 +36,6 @@ public extension RequestDataProvider {
     }
 
     func request() -> URLRequest? {
-        return URLComponents.reddit.request(by: method, parameters: parameters)
+        URLComponents(url: url, resolvingAgainstBaseURL: false)?.request(by: method, parameters: parameters)
     }
 }

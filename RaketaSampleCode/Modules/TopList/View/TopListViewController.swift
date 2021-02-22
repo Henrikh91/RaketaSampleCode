@@ -27,8 +27,6 @@ final class TopListViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(didSwipeRefreshContacts), for: .valueChanged)
 
-        tableView.refreshControl = refreshControl
-
         return refreshControl
     }()
     
@@ -43,6 +41,8 @@ final class TopListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.refreshControl = refreshControl
 
         presenter.viewDidLoad()
     }
@@ -80,14 +80,9 @@ extension TopListViewController: UITableViewDataSource {
         
         cell.fill(with: viewModel)
         
-        return cell
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        presenter.viewDidLoadCell(at: indexPath)
         
-        if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height {
-            presenter.loadNextPage()
-        }
+        return cell
     }
 }
 

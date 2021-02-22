@@ -15,21 +15,16 @@ final class TopListCell: UITableViewCell {
 
     // MARK: - IBOutlets
 
-    @IBOutlet private(set) var titleLabel: UILabel!
-    @IBOutlet private(set) var authorLabel: UILabel!
-    @IBOutlet private(set) var dateLabel: UILabel!
-    @IBOutlet private(set) var commentsLabel: UILabel!
-
     // MARK: ViewModel
     
     struct ViewModel {
         let title: String
         let author: String
         let timeAgo: String
-        let imageURL: URL?
+        var image: UIImage?
         let comments: String
         
-        static var initial = ViewModel(title: "", author: "", timeAgo: "", imageURL: nil, comments: "")
+        static var initial = ViewModel(title: "", author: "", timeAgo: "", image: nil, comments: "")
     }
     
     override func prepareForReuse() {
@@ -45,17 +40,9 @@ extension TopListCell: DataView {
     typealias ViewModelType = ViewModel
     
     func fill(with viewModel: ViewModelType) {
-        titleLabel?.text = viewModel.title
-        authorLabel?.text = viewModel.author
-        dateLabel?.text = viewModel.timeAgo
-        commentsLabel?.text = viewModel.comments
-        
-        if let imageURL = viewModel.imageURL {
-            imageView?.isHidden = false
-            imageView?.downloaded(from: imageURL, contentMode: .scaleAspectFit)
-        } else {
-            imageView?.isHidden = true
-            imageView?.image = nil
-        }
+        textLabel?.text = viewModel.title
+        detailTextLabel?.text = "\(viewModel.author)\n\(viewModel.timeAgo)\n\(viewModel.comments)"
+        imageView?.image = viewModel.image
+        imageView?.contentMode = .scaleAspectFit
     }
 }

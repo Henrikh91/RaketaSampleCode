@@ -44,10 +44,15 @@ extension TopList {
                 switch self {
 
                 case .loadTop(let limit, let after) :
-                    return [
-                        "limit": limit,
-                        "after": after ?? ""
+                    var parameters: Parameters = [
+                        "limit": limit
                     ]
+                    
+                    if let after = after {
+                        parameters["after"] = after
+                    }
+                    
+                    return parameters
                 }
             }
         }
